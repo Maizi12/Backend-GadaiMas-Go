@@ -1,0 +1,69 @@
+HM:300Jt
+DP:100Jt
+Hutang=HM-DP(200jt)
+Bunga:11%
+T:4tahun
+next_angs=0
+angs_total=(1+(11/100(Bunga) * 4(Waktu)))*200jt
+	=(1+0,44)*200jt
+	=288jt
+angs_pay_total=payment.DB+angs_pay_total
+
+if angs_total-angs_pay_total!=0{
+	
+	function
+
+} else{
+	
+	end
+
+}
+
+Compounding Tagihan
+
+
+if angs_pay<angs_monthly=angs_total/(T*12)&&(missed_amounts.DB=0){
+	missed_amounts=angs_month-angs_pay
+	next_angs=angs_month+missed_amounts+(missed_amounts*0,02)
+
+}
+else if angs_pay<angs_monthly=angs_total/(T*12)&&(missed_amounts.DB!=0){
+	missed_amounts=angs_month-angs_pay
+	next_angs=next_angs.DB+missed_amounts+((missed_amounts.DB+(angs_month-angs_pay))*0,02)
+
+}
+
+angs pertama macet
+missed_amounts=angs_month-angs_pay
+6jt-5jt
+angs_month+(angs_month-angs_pay)+((angs_month-angs_pay)*0,2)+next_angs.DB
+6jt+(6jt-5jt)+((6jt-5jt)*0,02)+0=6jt+1jt+20.000=7.020.000
+
+angs ke-2&selanjutnya
+missed_amounts=angs_month-angs_pay
+next_angs=next_angs.DB+missed_amounts+((missed_amounts.DB+missed_amounts)*0,02)
+
+next_angs.DB(7.020.000)+1.000.000(missed_amounts)+((missed_amounts.DB+missed_amounts)*0,2)=
+next_angs.DB(8.020.000)+missed_amounts.DB+missed_amounts(2.020.000*0,02)=8.020.000+40.400
+=8.060.400+(2.060.400*0,02)
+
+6jt+(6jt-5jt)+((6jt-5jt)*0,2)+7.020.000
+
+5,1*0,02
+
+
+Database
+Users
+ID_user, Name, Deposit, phone
+
+Cars
+Carid, BrandName, GroupModelName, ModalName, Year, Price, CreatedAt
+
+Leasing
+LeasingID, LeasingName, Rates, Terms
+
+Invoice
+ID_Invoice,ID_user,Carid,LeasingID, Hutang, angs_total, terms, angs_pay_total, missed_amounts, next_angs, CreatedAt, UpdatedAt, deletedAt
+
+Payment
+ID_Invoice, ID_Payment, CreatedAt
